@@ -5,40 +5,40 @@ Following are the features I made.
 
 ## Features
 ### User feature
-*repeat previous ratio
-*order span mean
-*time for visiting
-*Has ordered orgenic, glutenfree, Asian
-*hour delta
-*order size
-*How many None
+* repeat previous ratio
+* order span mean
+* time for visiting
+* Has ordered orgenic, glutenfree, Asian
+* hour delta
+* order size
+* How many None
 
 ### Item feature
-*ratio of ordered time
-*ordered time cycle
-*co-occur(over order)
-*stats of pos_cart
-*How many user buy it as "one shot"
-*stats of number of items co-occured
-*stats of order streak
-*1to1 prob
-*prob of reorder within N order_number
-*distribution delta of dow
-*prob of reorder, after first order
-*stats of order_number delta
+* ratio of ordered time
+* ordered time cycle
+* co-occur(over order)
+* stats of pos_cart
+* How many user buy it as "one shot"
+* stats of number of items co-occured
+* stats of order streak
+* 1to1 prob
+* prob of reorder within N order_number
+* distribution delta of dow
+* prob of reorder, after first order
+* stats of order_number delta
 
 ### User x Item feature
-*total order
-*days since last order
-*streak
-*stats of pos_cart
-*ratio of ordered time
-*ordered today
-*co-occur
-*replacement
+* total order
+* days since last order
+* streak
+* stats of pos_cart
+* ratio of ordered time
+* ordered today
+* co-occur
+* replacement
 
 ### datetime feature
-*How many come by dow and hour
+* How many come by dow and hour
 
 More detail, please refer to source.
 
