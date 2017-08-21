@@ -13,11 +13,7 @@ import warnings
 warnings.filterwarnings("ignore")
 import pandas as pd
 import numpy as np
-from tqdm import tqdm
 import gc
-import sys
-sys.path.append('/home/konodera/Python')
-import xgbextension as ex
 import xgboost as xgb
 import utils
 utils.start(__file__)
@@ -150,20 +146,6 @@ del train_user, sub_train, X_train, y_train
 del dbuild, dvalid
 gc.collect()
 
-"""
-models = []
-for i in range(LOOP):
-    model = xgb.Booster({'nthread':20}) #init model
-    model.load_model('../output/model/{}/xgb_None_{}.model'.format(DATE, i)) # load data
-    models.append(model)
-
-"""
-
-imp = ex.getImp(models)
-imp.to_csv('../output/imp/{}/imp_None.csv'.format(DATE), index=0)
-
-
-
 
 #==============================================================================
 print('test')
@@ -181,10 +163,6 @@ print('Test Mean:', sub_test['yhat'].mean())
 sub_test.to_pickle('../output/sub/{}/sub_test_None.p'.format(DATE))
 
 
-
-"""
-
-"""
 #==============================================================================
 utils.end(__file__)
 
