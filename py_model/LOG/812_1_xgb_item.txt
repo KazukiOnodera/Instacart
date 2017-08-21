@@ -1,0 +1,730 @@
+
+#==============================================================================
+# START !!! 002_xgb_holdout_item.py PID: 19114
+#==============================================================================
+
+#==== print param ======
+DATE: 812_1
+seed: 71
+keep top imp
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:05<01:50,  5.83s/it] 10%|█         | 2/20 [00:11<01:46,  5.91s/it] 15%|█▌        | 3/20 [00:18<01:42,  6.00s/it] 20%|██        | 4/20 [00:24<01:35,  5.97s/it] 25%|██▌       | 5/20 [00:29<01:29,  5.96s/it] 30%|███       | 6/20 [00:35<01:23,  5.97s/it] 35%|███▌      | 7/20 [00:41<01:17,  5.94s/it] 40%|████      | 8/20 [00:47<01:10,  5.89s/it] 45%|████▌     | 9/20 [00:53<01:04,  5.86s/it] 50%|█████     | 10/20 [00:59<00:58,  5.85s/it] 55%|█████▌    | 11/20 [01:04<00:51,  5.77s/it] 60%|██████    | 12/20 [01:10<00:46,  5.76s/it] 65%|██████▌   | 13/20 [01:16<00:40,  5.80s/it] 70%|███████   | 14/20 [01:22<00:35,  5.93s/it] 75%|███████▌  | 15/20 [01:28<00:29,  5.86s/it] 80%|████████  | 16/20 [01:34<00:23,  5.79s/it] 85%|████████▌ | 17/20 [01:39<00:17,  5.77s/it] 90%|█████████ | 18/20 [01:45<00:11,  5.81s/it] 95%|█████████▌| 19/20 [01:51<00:05,  5.79s/it]100%|██████████| 20/20 [01:57<00:00,  5.79s/it]
+trainT-0.shape:(12838997, 210)
+
+keep top imp
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:05<01:45,  5.54s/it] 10%|█         | 2/20 [00:10<01:39,  5.50s/it] 15%|█▌        | 3/20 [00:16<01:32,  5.46s/it] 20%|██        | 4/20 [00:21<01:26,  5.41s/it] 25%|██▌       | 5/20 [00:26<01:20,  5.38s/it] 30%|███       | 6/20 [00:32<01:14,  5.34s/it] 35%|███▌      | 7/20 [00:37<01:09,  5.32s/it] 40%|████      | 8/20 [00:42<01:03,  5.33s/it] 45%|████▌     | 9/20 [00:48<00:58,  5.32s/it] 50%|█████     | 10/20 [00:53<00:52,  5.29s/it] 55%|█████▌    | 11/20 [00:58<00:47,  5.33s/it] 60%|██████    | 12/20 [01:03<00:42,  5.27s/it] 65%|██████▌   | 13/20 [01:09<00:36,  5.28s/it] 70%|███████   | 14/20 [01:14<00:32,  5.40s/it] 75%|███████▌  | 15/20 [01:20<00:26,  5.34s/it] 80%|████████  | 16/20 [01:25<00:21,  5.33s/it] 85%|████████▌ | 17/20 [01:30<00:15,  5.31s/it] 90%|█████████ | 18/20 [01:36<00:10,  5.34s/it] 95%|█████████▌| 19/20 [01:41<00:05,  5.36s/it]100%|██████████| 20/20 [01:46<00:00,  5.39s/it]
+trainT-1.shape:(11629304, 210)
+
+keep top imp
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:04<01:28,  4.68s/it] 10%|█         | 2/20 [00:09<01:24,  4.71s/it] 15%|█▌        | 3/20 [00:14<01:21,  4.77s/it] 20%|██        | 4/20 [00:19<01:19,  4.95s/it] 25%|██▌       | 5/20 [00:24<01:14,  4.98s/it] 30%|███       | 6/20 [00:29<01:09,  4.95s/it] 35%|███▌      | 7/20 [00:34<01:04,  4.97s/it] 40%|████      | 8/20 [00:39<00:59,  4.96s/it] 45%|████▌     | 9/20 [00:44<00:54,  4.94s/it] 50%|█████     | 10/20 [00:49<00:49,  4.97s/it] 55%|█████▌    | 11/20 [00:54<00:44,  4.96s/it] 60%|██████    | 12/20 [00:59<00:39,  4.94s/it] 65%|██████▌   | 13/20 [01:04<00:34,  4.96s/it] 70%|███████   | 14/20 [01:09<00:29,  4.99s/it] 75%|███████▌  | 15/20 [01:14<00:24,  4.99s/it] 80%|████████  | 16/20 [01:19<00:20,  5.00s/it] 85%|████████▌ | 17/20 [01:24<00:14,  4.90s/it] 90%|█████████ | 18/20 [01:29<00:09,  4.91s/it] 95%|█████████▌| 19/20 [01:34<00:04,  4.95s/it]100%|██████████| 20/20 [01:39<00:00,  4.94s/it]
+trainT-2.shape:(10606672, 210)
+
+drop1 ['order_id', 't-1_order_id', 't-2_order_id', 't-3_order_id', 'product_id', 'aisle_id', 'department_id', 'is_train']
+drop2 []
+split by user
+hold out
+LOOP 0
+build user:187598, valid user:9925
+FINAL SHAPE
+dbuild.shape:(33302648, 200)  dvalid.shape:(1772325, 200)
+
+[06:23:58] Tree method is selected to be 'hist', which uses a single updater grow_fast_histmaker.
+[0]	build-logloss:0.678928	valid-logloss:0.678932
+Multiple eval metrics have been passed: 'valid-logloss' will be used for early stopping.
+
+Will train until valid-logloss hasn't improved in 40 rounds.
+[5]	build-logloss:0.615545	valid-logloss:0.615551
+[10]	build-logloss:0.56288	valid-logloss:0.562897
+[15]	build-logloss:0.518682	valid-logloss:0.51871
+[20]	build-logloss:0.481234	valid-logloss:0.481278
+[25]	build-logloss:0.449263	valid-logloss:0.449332
+[30]	build-logloss:0.421839	valid-logloss:0.421936
+[35]	build-logloss:0.398209	valid-logloss:0.398334
+[40]	build-logloss:0.377817	valid-logloss:0.377967
+[45]	build-logloss:0.36012	valid-logloss:0.360301
+[50]	build-logloss:0.34477	valid-logloss:0.344981
+[55]	build-logloss:0.331429	valid-logloss:0.331663
+[60]	build-logloss:0.319779	valid-logloss:0.320042
+[65]	build-logloss:0.309627	valid-logloss:0.309917
+[70]	build-logloss:0.300763	valid-logloss:0.301084
+[75]	build-logloss:0.29301	valid-logloss:0.29336
+[80]	build-logloss:0.286229	valid-logloss:0.286611
+[85]	build-logloss:0.280284	valid-logloss:0.280695
+[90]	build-logloss:0.275086	valid-logloss:0.275528
+[95]	build-logloss:0.270554	valid-logloss:0.271026
+[100]	build-logloss:0.266569	valid-logloss:0.267073
+[105]	build-logloss:0.263092	valid-logloss:0.263631
+[110]	build-logloss:0.260031	valid-logloss:0.260606
+[115]	build-logloss:0.257372	valid-logloss:0.25798
+[120]	build-logloss:0.255049	valid-logloss:0.255688
+[125]	build-logloss:0.253016	valid-logloss:0.25369
+[130]	build-logloss:0.251221	valid-logloss:0.251932
+[135]	build-logloss:0.249647	valid-logloss:0.250395
+[140]	build-logloss:0.248293	valid-logloss:0.249072
+[145]	build-logloss:0.247109	valid-logloss:0.247921
+[150]	build-logloss:0.24607	valid-logloss:0.246913
+[155]	build-logloss:0.245165	valid-logloss:0.246039
+[160]	build-logloss:0.24434	valid-logloss:0.245255
+[165]	build-logloss:0.243634	valid-logloss:0.244587
+[170]	build-logloss:0.243024	valid-logloss:0.244014
+[175]	build-logloss:0.242475	valid-logloss:0.243502
+[180]	build-logloss:0.242007	valid-logloss:0.243069
+[185]	build-logloss:0.241583	valid-logloss:0.242679
+[190]	build-logloss:0.241209	valid-logloss:0.242342
+[195]	build-logloss:0.240886	valid-logloss:0.242053
+[200]	build-logloss:0.240587	valid-logloss:0.241795
+[205]	build-logloss:0.240329	valid-logloss:0.241572
+[210]	build-logloss:0.240096	valid-logloss:0.241374
+[215]	build-logloss:0.239872	valid-logloss:0.241189
+[220]	build-logloss:0.239677	valid-logloss:0.241032
+[225]	build-logloss:0.239508	valid-logloss:0.240896
+[230]	build-logloss:0.239351	valid-logloss:0.240776
+[235]	build-logloss:0.239194	valid-logloss:0.240661
+[240]	build-logloss:0.239057	valid-logloss:0.240562
+[245]	build-logloss:0.238931	valid-logloss:0.240474
+[250]	build-logloss:0.238809	valid-logloss:0.240388
+[255]	build-logloss:0.238704	valid-logloss:0.240318
+[260]	build-logloss:0.238612	valid-logloss:0.240258
+[265]	build-logloss:0.238515	valid-logloss:0.2402
+[270]	build-logloss:0.238424	valid-logloss:0.240144
+[275]	build-logloss:0.238341	valid-logloss:0.240094
+[280]	build-logloss:0.238268	valid-logloss:0.240055
+[285]	build-logloss:0.238187	valid-logloss:0.240014
+[290]	build-logloss:0.238114	valid-logloss:0.239977
+[295]	build-logloss:0.238042	valid-logloss:0.23994
+[300]	build-logloss:0.237972	valid-logloss:0.239908
+[305]	build-logloss:0.237908	valid-logloss:0.239881
+[310]	build-logloss:0.23783	valid-logloss:0.239848
+[315]	build-logloss:0.237756	valid-logloss:0.239817
+[320]	build-logloss:0.237687	valid-logloss:0.23979
+[325]	build-logloss:0.237619	valid-logloss:0.239766
+[330]	build-logloss:0.237559	valid-logloss:0.239743
+[335]	build-logloss:0.237495	valid-logloss:0.239721
+[340]	build-logloss:0.23743	valid-logloss:0.239697
+[345]	build-logloss:0.237365	valid-logloss:0.239675
+[350]	build-logloss:0.237309	valid-logloss:0.239657
+[355]	build-logloss:0.237244	valid-logloss:0.239629
+[360]	build-logloss:0.237189	valid-logloss:0.239609
+[365]	build-logloss:0.237127	valid-logloss:0.239588
+[370]	build-logloss:0.237064	valid-logloss:0.239568
+[375]	build-logloss:0.237002	valid-logloss:0.239551
+[380]	build-logloss:0.236941	valid-logloss:0.239533
+[385]	build-logloss:0.23688	valid-logloss:0.239517
+[390]	build-logloss:0.236823	valid-logloss:0.2395
+[395]	build-logloss:0.236769	valid-logloss:0.239484
+[400]	build-logloss:0.236714	valid-logloss:0.239468
+[405]	build-logloss:0.236663	valid-logloss:0.239455
+[410]	build-logloss:0.236607	valid-logloss:0.239442
+[415]	build-logloss:0.236556	valid-logloss:0.23943
+[420]	build-logloss:0.236505	valid-logloss:0.239417
+[425]	build-logloss:0.236446	valid-logloss:0.239401
+[430]	build-logloss:0.236395	valid-logloss:0.239391
+[435]	build-logloss:0.23635	valid-logloss:0.239383
+[440]	build-logloss:0.236301	valid-logloss:0.23937
+[445]	build-logloss:0.236254	valid-logloss:0.239357
+[450]	build-logloss:0.236206	valid-logloss:0.239345
+[455]	build-logloss:0.236158	valid-logloss:0.239333
+[460]	build-logloss:0.236113	valid-logloss:0.239321
+[465]	build-logloss:0.236054	valid-logloss:0.239306
+[470]	build-logloss:0.236008	valid-logloss:0.239295
+[475]	build-logloss:0.235962	valid-logloss:0.239283
+[480]	build-logloss:0.235918	valid-logloss:0.239272
+[485]	build-logloss:0.235869	valid-logloss:0.23926
+[490]	build-logloss:0.235822	valid-logloss:0.239252
+[495]	build-logloss:0.235774	valid-logloss:0.239246
+[500]	build-logloss:0.235732	valid-logloss:0.239237
+[505]	build-logloss:0.235684	valid-logloss:0.239227
+[510]	build-logloss:0.235643	valid-logloss:0.23922
+[515]	build-logloss:0.235597	valid-logloss:0.239209
+[520]	build-logloss:0.235546	valid-logloss:0.2392
+[525]	build-logloss:0.235504	valid-logloss:0.23919
+[530]	build-logloss:0.23546	valid-logloss:0.239179
+[535]	build-logloss:0.23541	valid-logloss:0.239171
+[540]	build-logloss:0.23536	valid-logloss:0.239161
+[545]	build-logloss:0.235313	valid-logloss:0.239153
+[550]	build-logloss:0.235266	valid-logloss:0.239147
+[555]	build-logloss:0.235221	valid-logloss:0.23914
+[560]	build-logloss:0.235181	valid-logloss:0.239135
+[565]	build-logloss:0.23514	valid-logloss:0.239128
+[570]	build-logloss:0.235092	valid-logloss:0.239119
+[575]	build-logloss:0.235046	valid-logloss:0.23911
+[580]	build-logloss:0.235002	valid-logloss:0.239103
+[585]	build-logloss:0.234957	valid-logloss:0.239095
+[590]	build-logloss:0.234914	valid-logloss:0.239087
+[595]	build-logloss:0.234876	valid-logloss:0.239081
+[600]	build-logloss:0.234833	valid-logloss:0.239078
+[605]	build-logloss:0.234793	valid-logloss:0.23907
+[610]	build-logloss:0.234756	valid-logloss:0.239064
+[615]	build-logloss:0.234717	valid-logloss:0.239057
+[620]	build-logloss:0.23468	valid-logloss:0.23905
+[625]	build-logloss:0.23464	valid-logloss:0.239044
+[630]	build-logloss:0.234601	valid-logloss:0.23904
+[635]	build-logloss:0.234557	valid-logloss:0.239034
+[640]	build-logloss:0.234519	valid-logloss:0.23903
+[645]	build-logloss:0.234484	valid-logloss:0.239024
+[650]	build-logloss:0.234446	valid-logloss:0.239019
+[655]	build-logloss:0.234407	valid-logloss:0.23901
+[660]	build-logloss:0.234363	valid-logloss:0.239001
+[665]	build-logloss:0.234325	valid-logloss:0.238997
+[670]	build-logloss:0.234291	valid-logloss:0.238993
+[675]	build-logloss:0.234253	valid-logloss:0.238989
+[680]	build-logloss:0.234216	valid-logloss:0.238983
+[685]	build-logloss:0.234177	valid-logloss:0.238979
+[690]	build-logloss:0.234138	valid-logloss:0.238974
+[695]	build-logloss:0.234105	valid-logloss:0.23897
+[700]	build-logloss:0.234065	valid-logloss:0.238967
+[705]	build-logloss:0.234024	valid-logloss:0.23896
+[710]	build-logloss:0.233982	valid-logloss:0.238954
+[715]	build-logloss:0.233944	valid-logloss:0.238949
+[720]	build-logloss:0.233911	valid-logloss:0.238946
+[725]	build-logloss:0.233876	valid-logloss:0.238943
+[730]	build-logloss:0.233837	valid-logloss:0.238938
+[735]	build-logloss:0.233804	valid-logloss:0.238934
+[740]	build-logloss:0.233769	valid-logloss:0.23893
+[745]	build-logloss:0.233731	valid-logloss:0.238925
+[750]	build-logloss:0.233692	valid-logloss:0.238921
+[755]	build-logloss:0.233661	valid-logloss:0.238916
+[760]	build-logloss:0.233626	valid-logloss:0.238912
+[765]	build-logloss:0.233595	valid-logloss:0.238909
+[770]	build-logloss:0.233557	valid-logloss:0.238905
+[775]	build-logloss:0.233522	valid-logloss:0.2389
+[780]	build-logloss:0.233487	valid-logloss:0.238898
+[785]	build-logloss:0.233457	valid-logloss:0.238895
+[790]	build-logloss:0.233424	valid-logloss:0.238891
+[795]	build-logloss:0.233384	valid-logloss:0.238887
+[800]	build-logloss:0.233348	valid-logloss:0.238882
+[805]	build-logloss:0.233316	valid-logloss:0.238879
+[810]	build-logloss:0.23328	valid-logloss:0.238874
+[815]	build-logloss:0.233244	valid-logloss:0.238872
+[820]	build-logloss:0.233209	valid-logloss:0.238867
+[825]	build-logloss:0.233176	valid-logloss:0.238863
+[830]	build-logloss:0.233149	valid-logloss:0.238863
+[835]	build-logloss:0.233114	valid-logloss:0.238859
+[840]	build-logloss:0.23308	valid-logloss:0.238855
+[845]	build-logloss:0.233047	valid-logloss:0.238851
+[850]	build-logloss:0.233012	valid-logloss:0.238848
+[855]	build-logloss:0.232978	valid-logloss:0.238844
+[860]	build-logloss:0.232943	valid-logloss:0.238839
+[865]	build-logloss:0.232912	valid-logloss:0.238834
+[870]	build-logloss:0.232881	valid-logloss:0.238832
+[875]	build-logloss:0.232845	valid-logloss:0.23883
+[880]	build-logloss:0.232814	valid-logloss:0.238828
+[885]	build-logloss:0.232783	valid-logloss:0.238824
+[890]	build-logloss:0.232754	valid-logloss:0.238821
+[895]	build-logloss:0.232727	valid-logloss:0.238819
+[900]	build-logloss:0.232689	valid-logloss:0.238815
+[905]	build-logloss:0.232655	valid-logloss:0.238812
+[910]	build-logloss:0.232625	valid-logloss:0.238809
+[915]	build-logloss:0.232592	valid-logloss:0.238804
+[920]	build-logloss:0.232564	valid-logloss:0.238802
+[925]	build-logloss:0.232529	valid-logloss:0.2388
+[930]	build-logloss:0.232493	valid-logloss:0.238794
+[935]	build-logloss:0.232462	valid-logloss:0.238792
+[940]	build-logloss:0.232431	valid-logloss:0.238789
+[945]	build-logloss:0.2324	valid-logloss:0.238787
+[950]	build-logloss:0.232366	valid-logloss:0.238783
+[955]	build-logloss:0.232337	valid-logloss:0.23878
+[960]	build-logloss:0.232306	valid-logloss:0.238778
+[965]	build-logloss:0.232272	valid-logloss:0.238774
+[970]	build-logloss:0.232237	valid-logloss:0.238774
+[975]	build-logloss:0.232203	valid-logloss:0.238773
+[980]	build-logloss:0.232168	valid-logloss:0.23877
+[985]	build-logloss:0.232142	valid-logloss:0.238768
+[990]	build-logloss:0.232109	valid-logloss:0.238766
+[995]	build-logloss:0.232083	valid-logloss:0.238765
+[1000]	build-logloss:0.232052	valid-logloss:0.238763
+[1005]	build-logloss:0.232018	valid-logloss:0.238761
+[1010]	build-logloss:0.231987	valid-logloss:0.238759
+[1015]	build-logloss:0.231965	valid-logloss:0.238758
+[1020]	build-logloss:0.231935	valid-logloss:0.238755
+[1025]	build-logloss:0.231909	valid-logloss:0.238752
+[1030]	build-logloss:0.231882	valid-logloss:0.238749
+[1035]	build-logloss:0.23185	valid-logloss:0.238749
+[1040]	build-logloss:0.231817	valid-logloss:0.238746
+[1045]	build-logloss:0.231785	valid-logloss:0.238743
+[1050]	build-logloss:0.231755	valid-logloss:0.23874
+[1055]	build-logloss:0.231725	valid-logloss:0.238738
+[1060]	build-logloss:0.231697	valid-logloss:0.238735
+[1065]	build-logloss:0.23167	valid-logloss:0.238734
+[1070]	build-logloss:0.231644	valid-logloss:0.238732
+[1075]	build-logloss:0.231619	valid-logloss:0.238732
+[1080]	build-logloss:0.231586	valid-logloss:0.238728
+[1085]	build-logloss:0.23155	valid-logloss:0.238726
+[1090]	build-logloss:0.231521	valid-logloss:0.238725
+[1095]	build-logloss:0.231493	valid-logloss:0.238723
+[1100]	build-logloss:0.231468	valid-logloss:0.238721
+[1105]	build-logloss:0.23144	valid-logloss:0.238722
+[1110]	build-logloss:0.231408	valid-logloss:0.23872
+[1115]	build-logloss:0.231382	valid-logloss:0.238719
+[1120]	build-logloss:0.231347	valid-logloss:0.238716
+[1125]	build-logloss:0.231319	valid-logloss:0.238716
+[1130]	build-logloss:0.231289	valid-logloss:0.238713
+[1135]	build-logloss:0.23126	valid-logloss:0.238709
+[1140]	build-logloss:0.231233	valid-logloss:0.238708
+[1145]	build-logloss:0.231201	valid-logloss:0.238707
+[1150]	build-logloss:0.231175	valid-logloss:0.238705
+[1155]	build-logloss:0.231146	valid-logloss:0.238702
+[1160]	build-logloss:0.231122	valid-logloss:0.2387
+[1165]	build-logloss:0.231091	valid-logloss:0.238698
+[1170]	build-logloss:0.231056	valid-logloss:0.238698
+[1175]	build-logloss:0.231028	valid-logloss:0.238697
+[1180]	build-logloss:0.231	valid-logloss:0.238696
+[1185]	build-logloss:0.23097	valid-logloss:0.238695
+[1190]	build-logloss:0.230944	valid-logloss:0.238694
+[1195]	build-logloss:0.230914	valid-logloss:0.238693
+[1200]	build-logloss:0.230888	valid-logloss:0.238691
+[1205]	build-logloss:0.230862	valid-logloss:0.238692
+[1210]	build-logloss:0.230836	valid-logloss:0.238691
+[1215]	build-logloss:0.230808	valid-logloss:0.238691
+[1220]	build-logloss:0.230784	valid-logloss:0.23869
+[1225]	build-logloss:0.23075	valid-logloss:0.238689
+[1230]	build-logloss:0.230726	valid-logloss:0.238687
+[1235]	build-logloss:0.230692	valid-logloss:0.238687
+[1240]	build-logloss:0.230664	valid-logloss:0.238685
+[1245]	build-logloss:0.230635	valid-logloss:0.238684
+[1250]	build-logloss:0.230609	valid-logloss:0.238682
+[1255]	build-logloss:0.230583	valid-logloss:0.238679
+[1260]	build-logloss:0.230559	valid-logloss:0.238678
+[1265]	build-logloss:0.230531	valid-logloss:0.238677
+[1270]	build-logloss:0.230502	valid-logloss:0.238674
+[1275]	build-logloss:0.230472	valid-logloss:0.238672
+[1280]	build-logloss:0.230443	valid-logloss:0.23867
+[1285]	build-logloss:0.230415	valid-logloss:0.238669
+[1290]	build-logloss:0.230385	valid-logloss:0.238666
+[1295]	build-logloss:0.230354	valid-logloss:0.238665
+[1300]	build-logloss:0.230325	valid-logloss:0.238664
+[1305]	build-logloss:0.230291	valid-logloss:0.238663
+[1310]	build-logloss:0.230264	valid-logloss:0.238661
+[1315]	build-logloss:0.230239	valid-logloss:0.238659
+[1320]	build-logloss:0.230212	valid-logloss:0.238658
+[1325]	build-logloss:0.230183	valid-logloss:0.238656
+[1330]	build-logloss:0.230155	valid-logloss:0.238656
+[1335]	build-logloss:0.230129	valid-logloss:0.238653
+[1340]	build-logloss:0.230101	valid-logloss:0.238651
+[1345]	build-logloss:0.230073	valid-logloss:0.23865
+[1350]	build-logloss:0.230045	valid-logloss:0.23865
+[1355]	build-logloss:0.230016	valid-logloss:0.238648
+[1360]	build-logloss:0.229987	valid-logloss:0.238647
+[1365]	build-logloss:0.229952	valid-logloss:0.238647
+[1370]	build-logloss:0.229921	valid-logloss:0.238645
+[1375]	build-logloss:0.229895	valid-logloss:0.238643
+[1380]	build-logloss:0.229871	valid-logloss:0.238641
+[1385]	build-logloss:0.229841	valid-logloss:0.238639
+[1390]	build-logloss:0.22982	valid-logloss:0.238638
+[1395]	build-logloss:0.229792	valid-logloss:0.238636
+[1400]	build-logloss:0.229767	valid-logloss:0.238636
+[1405]	build-logloss:0.229737	valid-logloss:0.238634
+[1410]	build-logloss:0.229712	valid-logloss:0.238635
+[1415]	build-logloss:0.229682	valid-logloss:0.238634
+[1420]	build-logloss:0.229654	valid-logloss:0.238633
+[1425]	build-logloss:0.229625	valid-logloss:0.238632
+[1430]	build-logloss:0.229596	valid-logloss:0.238632
+[1435]	build-logloss:0.229573	valid-logloss:0.23863
+[1440]	build-logloss:0.229539	valid-logloss:0.23863
+[1445]	build-logloss:0.229513	valid-logloss:0.238628
+[1450]	build-logloss:0.229485	valid-logloss:0.238627
+[1455]	build-logloss:0.229458	valid-logloss:0.238625
+[1460]	build-logloss:0.229431	valid-logloss:0.238625
+[1465]	build-logloss:0.229407	valid-logloss:0.238623
+[1470]	build-logloss:0.22938	valid-logloss:0.238622
+[1475]	build-logloss:0.229348	valid-logloss:0.238622
+[1480]	build-logloss:0.229323	valid-logloss:0.238621
+[1485]	build-logloss:0.229298	valid-logloss:0.238622
+[1490]	build-logloss:0.229269	valid-logloss:0.23862
+[1495]	build-logloss:0.229241	valid-logloss:0.238619
+[1500]	build-logloss:0.229208	valid-logloss:0.238618
+[1505]	build-logloss:0.229184	valid-logloss:0.238616
+[1510]	build-logloss:0.229157	valid-logloss:0.238615
+[1515]	build-logloss:0.229131	valid-logloss:0.238616
+[1520]	build-logloss:0.229109	valid-logloss:0.238616
+[1525]	build-logloss:0.229078	valid-logloss:0.238614
+[1530]	build-logloss:0.229054	valid-logloss:0.238613
+[1535]	build-logloss:0.229031	valid-logloss:0.238614
+[1540]	build-logloss:0.229006	valid-logloss:0.238614
+[1545]	build-logloss:0.228982	valid-logloss:0.238612
+[1550]	build-logloss:0.22895	valid-logloss:0.238613
+[1555]	build-logloss:0.228922	valid-logloss:0.238612
+[1560]	build-logloss:0.228898	valid-logloss:0.238612
+[1565]	build-logloss:0.228871	valid-logloss:0.23861
+[1570]	build-logloss:0.228847	valid-logloss:0.238609
+[1575]	build-logloss:0.22882	valid-logloss:0.238608
+[1580]	build-logloss:0.22879	valid-logloss:0.238607
+[1585]	build-logloss:0.228766	valid-logloss:0.238608
+[1590]	build-logloss:0.22874	valid-logloss:0.238609
+[1595]	build-logloss:0.228713	valid-logloss:0.238608
+[1600]	build-logloss:0.228684	valid-logloss:0.238608
+[1605]	build-logloss:0.228652	valid-logloss:0.238607
+[1610]	build-logloss:0.228623	valid-logloss:0.238605
+[1615]	build-logloss:0.228599	valid-logloss:0.238603
+[1620]	build-logloss:0.22857	valid-logloss:0.238603
+[1625]	build-logloss:0.228543	valid-logloss:0.238602
+[1630]	build-logloss:0.228514	valid-logloss:0.238601
+[1635]	build-logloss:0.228493	valid-logloss:0.238601
+[1640]	build-logloss:0.228467	valid-logloss:0.238601
+[1645]	build-logloss:0.228442	valid-logloss:0.2386
+[1650]	build-logloss:0.22842	valid-logloss:0.2386
+[1655]	build-logloss:0.228396	valid-logloss:0.238601
+[1660]	build-logloss:0.228367	valid-logloss:0.238601
+[1665]	build-logloss:0.228342	valid-logloss:0.238599
+[1670]	build-logloss:0.228314	valid-logloss:0.238599
+[1675]	build-logloss:0.228288	valid-logloss:0.238597
+[1680]	build-logloss:0.228264	valid-logloss:0.238597
+[1685]	build-logloss:0.228236	valid-logloss:0.238597
+[1690]	build-logloss:0.228209	valid-logloss:0.238596
+[1695]	build-logloss:0.228184	valid-logloss:0.238595
+[1700]	build-logloss:0.228163	valid-logloss:0.238594
+[1705]	build-logloss:0.228132	valid-logloss:0.238593
+[1710]	build-logloss:0.228105	valid-logloss:0.238591
+[1715]	build-logloss:0.228083	valid-logloss:0.23859
+[1720]	build-logloss:0.228062	valid-logloss:0.238589
+[1725]	build-logloss:0.228031	valid-logloss:0.238589
+[1730]	build-logloss:0.228005	valid-logloss:0.238588
+[1735]	build-logloss:0.227981	valid-logloss:0.238588
+[1740]	build-logloss:0.227954	valid-logloss:0.238587
+[1745]	build-logloss:0.22793	valid-logloss:0.238586
+[1750]	build-logloss:0.227903	valid-logloss:0.238586
+[1755]	build-logloss:0.227874	valid-logloss:0.238584
+[1760]	build-logloss:0.227852	valid-logloss:0.238583
+[1765]	build-logloss:0.227823	valid-logloss:0.238584
+[1770]	build-logloss:0.227795	valid-logloss:0.238583
+[1775]	build-logloss:0.227767	valid-logloss:0.238582
+[1780]	build-logloss:0.227742	valid-logloss:0.238582
+[1785]	build-logloss:0.227716	valid-logloss:0.238582
+[1790]	build-logloss:0.227688	valid-logloss:0.23858
+[1795]	build-logloss:0.227661	valid-logloss:0.238582
+[1800]	build-logloss:0.227636	valid-logloss:0.238581
+[1805]	build-logloss:0.227613	valid-logloss:0.23858
+[1810]	build-logloss:0.227586	valid-logloss:0.238579
+[1815]	build-logloss:0.227561	valid-logloss:0.238579
+[1820]	build-logloss:0.227532	valid-logloss:0.238579
+[1825]	build-logloss:0.22751	valid-logloss:0.23858
+[1830]	build-logloss:0.227491	valid-logloss:0.238579
+[1835]	build-logloss:0.227466	valid-logloss:0.238578
+[1840]	build-logloss:0.227438	valid-logloss:0.238577
+[1845]	build-logloss:0.227412	valid-logloss:0.238578
+[1850]	build-logloss:0.227387	valid-logloss:0.238578
+[1855]	build-logloss:0.227363	valid-logloss:0.238577
+[1860]	build-logloss:0.227339	valid-logloss:0.238577
+[1865]	build-logloss:0.227312	valid-logloss:0.238577
+[1870]	build-logloss:0.227288	valid-logloss:0.238576
+[1875]	build-logloss:0.227264	valid-logloss:0.238577
+[1880]	build-logloss:0.227239	valid-logloss:0.238575
+[1885]	build-logloss:0.227208	valid-logloss:0.238575
+[1890]	build-logloss:0.227185	valid-logloss:0.238576
+[1895]	build-logloss:0.22716	valid-logloss:0.238574
+[1900]	build-logloss:0.227134	valid-logloss:0.238574
+[1905]	build-logloss:0.22711	valid-logloss:0.238574
+[1910]	build-logloss:0.227087	valid-logloss:0.238574
+[1915]	build-logloss:0.227064	valid-logloss:0.238574
+[1920]	build-logloss:0.227042	valid-logloss:0.238574
+[1925]	build-logloss:0.227021	valid-logloss:0.238573
+[1930]	build-logloss:0.226999	valid-logloss:0.238572
+[1935]	build-logloss:0.226974	valid-logloss:0.238571
+[1940]	build-logloss:0.22695	valid-logloss:0.238571
+[1945]	build-logloss:0.226923	valid-logloss:0.238569
+[1950]	build-logloss:0.226898	valid-logloss:0.238571
+[1955]	build-logloss:0.226876	valid-logloss:0.238572
+[1960]	build-logloss:0.22685	valid-logloss:0.238571
+[1965]	build-logloss:0.226825	valid-logloss:0.238569
+[1970]	build-logloss:0.2268	valid-logloss:0.238568
+[1975]	build-logloss:0.226774	valid-logloss:0.238568
+[1980]	build-logloss:0.226749	valid-logloss:0.238567
+[1985]	build-logloss:0.226728	valid-logloss:0.238566
+[1990]	build-logloss:0.226701	valid-logloss:0.238565
+[1995]	build-logloss:0.226676	valid-logloss:0.238566
+[2000]	build-logloss:0.226649	valid-logloss:0.238565
+[2005]	build-logloss:0.226625	valid-logloss:0.238564
+[2010]	build-logloss:0.226603	valid-logloss:0.238565
+[2015]	build-logloss:0.226579	valid-logloss:0.238565
+[2020]	build-logloss:0.226551	valid-logloss:0.238566
+[2025]	build-logloss:0.226528	valid-logloss:0.238565
+[2030]	build-logloss:0.226503	valid-logloss:0.238566
+[2035]	build-logloss:0.226476	valid-logloss:0.238567
+[2040]	build-logloss:0.226457	valid-logloss:0.238566
+Stopping. Best iteration:
+[2004]	build-logloss:0.226631	valid-logloss:0.238564
+
+Valid Mean: 0.0971129
+LOOP 1
+build user:187735, valid user:9788
+FINAL SHAPE
+dbuild.shape:(33332923, 200)  dvalid.shape:(1742050, 200)
+
+[14:45:12] Tree method is selected to be 'hist', which uses a single updater grow_fast_histmaker.
+[0]	build-logloss:0.678915	valid-logloss:0.678926
+Multiple eval metrics have been passed: 'valid-logloss' will be used for early stopping.
+
+Will train until valid-logloss hasn't improved in 40 rounds.
+[5]	build-logloss:0.61552	valid-logloss:0.61557
+[10]	build-logloss:0.562844	valid-logloss:0.562927
+[15]	build-logloss:0.518604	valid-logloss:0.518713
+[20]	build-logloss:0.481178	valid-logloss:0.481314
+[25]	build-logloss:0.449265	valid-logloss:0.449419
+[30]	build-logloss:0.421911	valid-logloss:0.42208
+[35]	build-logloss:0.398324	valid-logloss:0.398509
+[40]	build-logloss:0.377925	valid-logloss:0.378124
+[45]	build-logloss:0.360247	valid-logloss:0.360461
+[50]	build-logloss:0.344881	valid-logloss:0.345109
+[55]	build-logloss:0.331534	valid-logloss:0.331775
+[60]	build-logloss:0.31988	valid-logloss:0.320128
+[65]	build-logloss:0.30972	valid-logloss:0.309979
+[70]	build-logloss:0.300848	valid-logloss:0.301116
+[75]	build-logloss:0.293089	valid-logloss:0.293366
+[80]	build-logloss:0.286341	valid-logloss:0.286629
+[85]	build-logloss:0.280399	valid-logloss:0.280697
+[90]	build-logloss:0.275202	valid-logloss:0.275508
+[95]	build-logloss:0.270643	valid-logloss:0.270958
+[100]	build-logloss:0.266666	valid-logloss:0.266994
+[105]	build-logloss:0.263207	valid-logloss:0.263546
+[110]	build-logloss:0.260175	valid-logloss:0.260524
+[115]	build-logloss:0.257507	valid-logloss:0.257865
+[120]	build-logloss:0.255182	valid-logloss:0.255554
+[125]	build-logloss:0.253157	valid-logloss:0.253538
+[130]	build-logloss:0.251348	valid-logloss:0.251742
+[135]	build-logloss:0.249771	valid-logloss:0.25018
+[140]	build-logloss:0.248394	valid-logloss:0.248815
+[145]	build-logloss:0.247194	valid-logloss:0.247629
+[150]	build-logloss:0.246151	valid-logloss:0.246601
+[155]	build-logloss:0.245265	valid-logloss:0.245734
+[160]	build-logloss:0.244468	valid-logloss:0.244953
+[165]	build-logloss:0.243735	valid-logloss:0.24424
+[170]	build-logloss:0.24309	valid-logloss:0.243617
+[175]	build-logloss:0.242545	valid-logloss:0.243093
+[180]	build-logloss:0.242045	valid-logloss:0.242617
+[185]	build-logloss:0.241624	valid-logloss:0.242217
+[190]	build-logloss:0.241251	valid-logloss:0.24187
+[195]	build-logloss:0.240929	valid-logloss:0.241572
+[200]	build-logloss:0.240639	valid-logloss:0.241308
+[205]	build-logloss:0.240372	valid-logloss:0.241065
+[210]	build-logloss:0.240126	valid-logloss:0.240849
+[215]	build-logloss:0.239908	valid-logloss:0.240662
+[220]	build-logloss:0.239701	valid-logloss:0.240485
+[225]	build-logloss:0.239526	valid-logloss:0.24034
+[230]	build-logloss:0.239372	valid-logloss:0.240215
+[235]	build-logloss:0.239226	valid-logloss:0.240101
+[240]	build-logloss:0.239093	valid-logloss:0.240001
+[245]	build-logloss:0.238976	valid-logloss:0.239915
+[250]	build-logloss:0.238867	valid-logloss:0.239838
+[255]	build-logloss:0.23875	valid-logloss:0.239755
+[260]	build-logloss:0.23864	valid-logloss:0.239678
+[265]	build-logloss:0.238545	valid-logloss:0.239616
+[270]	build-logloss:0.238459	valid-logloss:0.239565
+[275]	build-logloss:0.238364	valid-logloss:0.239507
+[280]	build-logloss:0.238275	valid-logloss:0.239456
+[285]	build-logloss:0.238195	valid-logloss:0.23941
+[290]	build-logloss:0.238115	valid-logloss:0.239368
+[295]	build-logloss:0.238035	valid-logloss:0.239329
+[300]	build-logloss:0.237962	valid-logloss:0.239295
+[305]	build-logloss:0.237897	valid-logloss:0.239265
+[310]	build-logloss:0.23783	valid-logloss:0.239233
+[315]	build-logloss:0.237754	valid-logloss:0.239201
+[320]	build-logloss:0.237681	valid-logloss:0.239168
+[325]	build-logloss:0.237625	valid-logloss:0.239148
+[330]	build-logloss:0.237557	valid-logloss:0.239121
+[335]	build-logloss:0.237489	valid-logloss:0.239098
+[340]	build-logloss:0.237425	valid-logloss:0.239073
+[345]	build-logloss:0.237367	valid-logloss:0.23905
+[350]	build-logloss:0.237304	valid-logloss:0.239028
+[355]	build-logloss:0.237234	valid-logloss:0.239003
+[360]	build-logloss:0.237172	valid-logloss:0.238985
+[365]	build-logloss:0.23712	valid-logloss:0.238969
+[370]	build-logloss:0.237065	valid-logloss:0.238953
+[375]	build-logloss:0.237011	valid-logloss:0.238934
+[380]	build-logloss:0.236954	valid-logloss:0.238915
+[385]	build-logloss:0.236893	valid-logloss:0.238895
+[390]	build-logloss:0.236852	valid-logloss:0.238883
+[395]	build-logloss:0.236802	valid-logloss:0.23887
+[400]	build-logloss:0.236753	valid-logloss:0.238853
+[405]	build-logloss:0.236701	valid-logloss:0.238839
+[410]	build-logloss:0.236655	valid-logloss:0.238827
+[415]	build-logloss:0.236601	valid-logloss:0.238815
+[420]	build-logloss:0.236554	valid-logloss:0.238806
+[425]	build-logloss:0.236505	valid-logloss:0.238794
+[430]	build-logloss:0.236453	valid-logloss:0.238779
+[435]	build-logloss:0.236404	valid-logloss:0.238771
+[440]	build-logloss:0.236355	valid-logloss:0.238756
+[445]	build-logloss:0.236298	valid-logloss:0.238741
+[450]	build-logloss:0.236241	valid-logloss:0.238726
+[455]	build-logloss:0.236174	valid-logloss:0.238707
+[460]	build-logloss:0.236118	valid-logloss:0.23869
+[465]	build-logloss:0.236063	valid-logloss:0.238679
+[470]	build-logloss:0.236018	valid-logloss:0.238671
+[475]	build-logloss:0.235969	valid-logloss:0.238662
+[480]	build-logloss:0.235923	valid-logloss:0.238651
+[485]	build-logloss:0.235873	valid-logloss:0.238641
+[490]	build-logloss:0.235826	valid-logloss:0.238631
+[495]	build-logloss:0.235783	valid-logloss:0.238618
+[500]	build-logloss:0.23574	valid-logloss:0.23861
+[505]	build-logloss:0.235689	valid-logloss:0.238604
+[510]	build-logloss:0.235651	valid-logloss:0.238595
+[515]	build-logloss:0.235605	valid-logloss:0.238587
+[520]	build-logloss:0.235562	valid-logloss:0.238579
+[525]	build-logloss:0.23552	valid-logloss:0.238574
+[530]	build-logloss:0.235474	valid-logloss:0.238567
+[535]	build-logloss:0.235434	valid-logloss:0.238561
+[540]	build-logloss:0.235391	valid-logloss:0.238551
+[545]	build-logloss:0.235346	valid-logloss:0.238541
+[550]	build-logloss:0.235297	valid-logloss:0.238531
+[555]	build-logloss:0.235251	valid-logloss:0.238524
+[560]	build-logloss:0.235205	valid-logloss:0.238517
+[565]	build-logloss:0.235156	valid-logloss:0.238506
+[570]	build-logloss:0.235116	valid-logloss:0.238499
+[575]	build-logloss:0.23507	valid-logloss:0.238492
+[580]	build-logloss:0.235023	valid-logloss:0.238483
+[585]	build-logloss:0.234979	valid-logloss:0.238474
+[590]	build-logloss:0.234934	valid-logloss:0.238467
+[595]	build-logloss:0.234895	valid-logloss:0.238462
+[600]	build-logloss:0.234856	valid-logloss:0.238455
+[605]	build-logloss:0.234812	valid-logloss:0.238449
+[610]	build-logloss:0.234769	valid-logloss:0.238442
+[615]	build-logloss:0.234733	valid-logloss:0.238438
+[620]	build-logloss:0.234682	valid-logloss:0.238431
+[625]	build-logloss:0.234641	valid-logloss:0.238426
+[630]	build-logloss:0.2346	valid-logloss:0.23842
+[635]	build-logloss:0.234561	valid-logloss:0.238412
+[640]	build-logloss:0.234523	valid-logloss:0.238406
+[645]	build-logloss:0.234487	valid-logloss:0.238402
+[650]	build-logloss:0.234448	valid-logloss:0.238394
+[655]	build-logloss:0.234408	valid-logloss:0.238389
+[660]	build-logloss:0.234365	valid-logloss:0.23838
+[665]	build-logloss:0.234328	valid-logloss:0.238376
+[670]	build-logloss:0.234288	valid-logloss:0.238371
+[675]	build-logloss:0.234251	valid-logloss:0.238369
+[680]	build-logloss:0.234214	valid-logloss:0.238362
+[685]	build-logloss:0.234183	valid-logloss:0.238359
+[690]	build-logloss:0.234141	valid-logloss:0.238355
+[695]	build-logloss:0.234102	valid-logloss:0.238349
+[700]	build-logloss:0.23406	valid-logloss:0.238343
+[705]	build-logloss:0.234024	valid-logloss:0.238338
+[710]	build-logloss:0.233985	valid-logloss:0.238335
+[715]	build-logloss:0.23395	valid-logloss:0.238331
+[720]	build-logloss:0.233915	valid-logloss:0.238324
+[725]	build-logloss:0.233879	valid-logloss:0.23832
+[730]	build-logloss:0.233846	valid-logloss:0.238315
+[735]	build-logloss:0.233813	valid-logloss:0.23831
+[740]	build-logloss:0.233779	valid-logloss:0.238307
+[745]	build-logloss:0.233735	valid-logloss:0.238305
+[750]	build-logloss:0.233697	valid-logloss:0.2383
+[755]	build-logloss:0.233666	valid-logloss:0.238297
+[760]	build-logloss:0.23363	valid-logloss:0.238294
+[765]	build-logloss:0.2336	valid-logloss:0.23829
+[770]	build-logloss:0.233563	valid-logloss:0.238283
+[775]	build-logloss:0.233519	valid-logloss:0.238278
+[780]	build-logloss:0.233483	valid-logloss:0.238275
+[785]	build-logloss:0.233449	valid-logloss:0.23827
+[790]	build-logloss:0.233419	valid-logloss:0.238268
+[795]	build-logloss:0.233386	valid-logloss:0.238266
+[800]	build-logloss:0.233351	valid-logloss:0.238263
+[805]	build-logloss:0.233316	valid-logloss:0.238255
+[810]	build-logloss:0.233286	valid-logloss:0.238253
+[815]	build-logloss:0.233253	valid-logloss:0.238249
+[820]	build-logloss:0.233219	valid-logloss:0.238247
+[825]	build-logloss:0.233186	valid-logloss:0.238242
+[830]	build-logloss:0.233149	valid-logloss:0.238238
+[835]	build-logloss:0.233118	valid-logloss:0.238236
+[840]	build-logloss:0.233087	valid-logloss:0.238233
+[845]	build-logloss:0.233057	valid-logloss:0.23823
+[850]	build-logloss:0.233022	valid-logloss:0.238226
+[855]	build-logloss:0.23299	valid-logloss:0.238222
+[860]	build-logloss:0.232953	valid-logloss:0.23822
+[865]	build-logloss:0.232919	valid-logloss:0.238215
+[870]	build-logloss:0.232882	valid-logloss:0.238211
+[875]	build-logloss:0.232849	valid-logloss:0.238207
+[880]	build-logloss:0.232817	valid-logloss:0.238205
+[885]	build-logloss:0.232784	valid-logloss:0.238202
+[890]	build-logloss:0.232751	valid-logloss:0.2382
+[895]	build-logloss:0.232716	valid-logloss:0.238197
+[900]	build-logloss:0.232678	valid-logloss:0.238195
+[905]	build-logloss:0.232647	valid-logloss:0.238192
+[910]	build-logloss:0.232613	valid-logloss:0.23819
+[915]	build-logloss:0.232578	valid-logloss:0.238188
+[920]	build-logloss:0.232541	valid-logloss:0.238186
+[925]	build-logloss:0.232504	valid-logloss:0.238185
+[930]	build-logloss:0.232473	valid-logloss:0.238181
+[935]	build-logloss:0.232441	valid-logloss:0.23818
+[940]	build-logloss:0.232408	valid-logloss:0.23818
+[945]	build-logloss:0.23238	valid-logloss:0.238177
+[950]	build-logloss:0.232346	valid-logloss:0.238173
+[955]	build-logloss:0.232312	valid-logloss:0.23817
+[960]	build-logloss:0.232277	valid-logloss:0.238167
+[965]	build-logloss:0.232248	valid-logloss:0.238166
+[970]	build-logloss:0.232213	valid-logloss:0.238163
+[975]	build-logloss:0.232182	valid-logloss:0.238163
+[980]	build-logloss:0.23215	valid-logloss:0.238161
+[985]	build-logloss:0.232113	valid-logloss:0.238161
+[990]	build-logloss:0.232086	valid-logloss:0.238161
+[995]	build-logloss:0.232059	valid-logloss:0.238157
+[1000]	build-logloss:0.232025	valid-logloss:0.238154
+[1005]	build-logloss:0.231997	valid-logloss:0.238151
+[1010]	build-logloss:0.231962	valid-logloss:0.238148
+[1015]	build-logloss:0.231937	valid-logloss:0.238145
+[1020]	build-logloss:0.231908	valid-logloss:0.238143
+[1025]	build-logloss:0.231881	valid-logloss:0.238141
+[1030]	build-logloss:0.231852	valid-logloss:0.23814
+[1035]	build-logloss:0.23182	valid-logloss:0.238137
+[1040]	build-logloss:0.231792	valid-logloss:0.238137
+[1045]	build-logloss:0.231759	valid-logloss:0.238134
+[1050]	build-logloss:0.23173	valid-logloss:0.238133
+[1055]	build-logloss:0.231702	valid-logloss:0.238132
+[1060]	build-logloss:0.23167	valid-logloss:0.23813
+[1065]	build-logloss:0.231642	valid-logloss:0.238128
+[1070]	build-logloss:0.231609	valid-logloss:0.238126
+[1075]	build-logloss:0.231586	valid-logloss:0.238125
+[1080]	build-logloss:0.231558	valid-logloss:0.238124
+[1085]	build-logloss:0.231526	valid-logloss:0.238122
+[1090]	build-logloss:0.231499	valid-logloss:0.238121
+[1095]	build-logloss:0.23147	valid-logloss:0.23812
+[1100]	build-logloss:0.231438	valid-logloss:0.238116
+[1105]	build-logloss:0.231411	valid-logloss:0.238115
+[1110]	build-logloss:0.231377	valid-logloss:0.238113
+[1115]	build-logloss:0.231346	valid-logloss:0.238111
+[1120]	build-logloss:0.231312	valid-logloss:0.23811
+[1125]	build-logloss:0.231282	valid-logloss:0.238109
+[1130]	build-logloss:0.231251	valid-logloss:0.238106
+[1135]	build-logloss:0.231217	valid-logloss:0.238105
+[1140]	build-logloss:0.231187	valid-logloss:0.238102
+[1145]	build-logloss:0.231156	valid-logloss:0.238101
+[1150]	build-logloss:0.231129	valid-logloss:0.238097
+[1155]	build-logloss:0.231095	valid-logloss:0.238096
+[1160]	build-logloss:0.231072	valid-logloss:0.238096
+[1165]	build-logloss:0.231045	valid-logloss:0.238094
+[1170]	build-logloss:0.231016	valid-logloss:0.238092
+[1175]	build-logloss:0.230995	valid-logloss:0.23809
+[1180]	build-logloss:0.230966	valid-logloss:0.238089
+[1185]	build-logloss:0.230935	valid-logloss:0.238088
+[1190]	build-logloss:0.230909	valid-logloss:0.238087
+[1195]	build-logloss:0.230882	valid-logloss:0.238085
+[1200]	build-logloss:0.230854	valid-logloss:0.238083
+[1205]	build-logloss:0.230829	valid-logloss:0.238083
+[1210]	build-logloss:0.2308	valid-logloss:0.238081
+[1215]	build-logloss:0.230773	valid-logloss:0.23808
+[1220]	build-logloss:0.230743	valid-logloss:0.238078
+[1225]	build-logloss:0.230721	valid-logloss:0.238076
+[1230]	build-logloss:0.230691	valid-logloss:0.238073
+[1235]	build-logloss:0.230666	valid-logloss:0.238072
+[1240]	build-logloss:0.230636	valid-logloss:0.23807
+[1245]	build-logloss:0.230607	valid-logloss:0.23807
+[1250]	build-logloss:0.230575	valid-logloss:0.238069
+[1255]	build-logloss:0.230549	valid-logloss:0.238069
+[1260]	build-logloss:0.230522	valid-logloss:0.23807
+[1265]	build-logloss:0.230494	valid-logloss:0.23807
+[1270]	build-logloss:0.230466	valid-logloss:0.238069
+[1275]	build-logloss:0.230435	valid-logloss:0.23807
+[1280]	build-logloss:0.230405	valid-logloss:0.238068
+[1285]	build-logloss:0.230376	valid-logloss:0.238069
+[1290]	build-logloss:0.230343	valid-logloss:0.238069
+Stopping. Best iteration:
+[1254]	build-logloss:0.230554	valid-logloss:0.238068
+
+Valid Mean: 0.0977511
+test
+keep top imp
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:08<02:48,  8.87s/it] 10%|█         | 2/20 [00:17<02:38,  8.82s/it] 15%|█▌        | 3/20 [00:25<02:23,  8.42s/it] 20%|██        | 4/20 [00:38<02:38,  9.90s/it] 25%|██▌       | 5/20 [00:48<02:30, 10.04s/it] 30%|███       | 6/20 [00:56<02:09,  9.27s/it] 35%|███▌      | 7/20 [01:03<01:53,  8.77s/it] 40%|████      | 8/20 [01:12<01:46,  8.85s/it] 45%|████▌     | 9/20 [01:22<01:39,  9.08s/it] 50%|█████     | 10/20 [01:29<01:23,  8.35s/it] 55%|█████▌    | 11/20 [01:39<01:19,  8.85s/it] 60%|██████    | 12/20 [01:48<01:10,  8.87s/it] 65%|██████▌   | 13/20 [01:59<01:06,  9.57s/it] 70%|███████   | 14/20 [02:06<00:52,  8.73s/it] 75%|███████▌  | 15/20 [02:15<00:44,  8.95s/it] 80%|████████  | 16/20 [02:25<00:37,  9.32s/it] 85%|████████▌ | 17/20 [02:38<00:30, 10.29s/it] 90%|█████████ | 18/20 [02:49<00:20, 10.49s/it] 95%|█████████▌| 19/20 [02:57<00:09,  9.68s/it]100%|██████████| 20/20 [03:05<00:00,  9.26s/it]
+test.shape:(4833292, 209)
+
+Test Mean: 0.09747585654258728
+
+#==============================================================================
+# SUCCESS !!! 002_xgb_holdout_item.py
+#==============================================================================
+
+time: 821.36min
