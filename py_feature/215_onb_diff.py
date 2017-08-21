@@ -58,7 +58,6 @@ def make(T):
     diff = []
     
     for pid, uid, onb, max_onb in log_[['product_id', 'user_id', 'order_number', 'user_max_onb']].values:
-#    for pid, uid, onb, max_onb in log_[['product_id', 'user_id', 'order_number', 'user_max_onb']].head(9999).values:
         
         if pid==pid_bk and uid==uid_bk:
             diff.append(onb-onb_bk)
@@ -118,9 +117,6 @@ def make(T):
 make(0)
 make(1)
 make(2)
-#make(3)
-#make(4)
-#make(5)
 
 make(-1)
 

@@ -9,7 +9,7 @@ Created on Mon Aug  7 13:58:58 2017
 import pandas as pd
 import numpy as np
 import utils
-#utils.start(__file__)
+utils.start(__file__)
 
 #==============================================================================
 # load
@@ -53,9 +53,6 @@ def make(T):
 make(0)
 make(1)
 make(2)
-#make(3)
-#make(4)
-#make(5)
 
 make(-1)
 

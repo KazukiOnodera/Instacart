@@ -49,9 +49,6 @@ def make(T):
 make(0) # basically train is T=0, for validation, train;T=1 valid;T=0
 make(1)
 make(2)
-make(3)
-make(4)
-make(5)
 
 #==============================================================================
 # test

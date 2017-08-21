@@ -32,7 +32,6 @@ col = ['order_id', 'order_number', 'order_dow', 'order_hour_of_day',
 X = pd.merge(X_base, order_tbl[col], on='order_id', how='left')
 
 col_feature = []
-#col_feature = ['order_id']
 
 #==============================================================================
 # repeat_previous_ratio
@@ -154,7 +153,6 @@ for i in range(1, 1+T):
     X = pd.merge(X, order_tbl[col+col_feature].add_prefix('t-{}_'.format(i)), 
                  on='t-{}_order_id'.format(i), how='left')
 
-#X.drop(['t-1_order_id', 't-2_order_id', 'is_train'], axis=1, inplace=True)
 
 train = X[X.is_train==1].drop(['user_id','is_train'], axis=1).reset_index(drop=1)
 test  = X[X.is_train==0].drop(['user_id','is_train'], axis=1).reset_index(drop=1)
@@ -164,8 +162,6 @@ test  = X[X.is_train==0].drop(['user_id','is_train'], axis=1).reset_index(drop=1
 #==============================================================================
 col = [c for c in train.columns if not ('t-' in c and '_id' in c)]
 train[col].to_pickle('../feature/trainT-0/f101_order.p')
-#train[col].to_pickle('../feature/trainT-1/f101_order.p')
-#train[col].to_pickle('../feature/trainT-2/f101_order.p')
 test[col].to_pickle('../feature/test/f101_order.p')
 
 

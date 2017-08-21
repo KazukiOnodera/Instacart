@@ -11,7 +11,7 @@ import numpy as np
 from tqdm import tqdm
 from collections import defaultdict
 import utils
-#utils.start(__file__)
+utils.start(__file__)
 
 #==============================================================================
 # load
@@ -36,18 +36,8 @@ for args in tqdm(log[['user_id']+col].values):
     
     if uid_bk is None:
         pass
-#        li2 = []
-#        for i,c in enumerate(col):
-#            di[c] += args[i+1]
-#            li2.append(di[c])
-#        li1 += li2
     elif uid == uid_bk:
         pass
-#        li2 = []
-#        for i,c in enumerate(col):
-#            di[c] += args[i+1]
-#            li2.append(di[c])
-#        li1 += li2
     elif uid != uid_bk:
         di = defaultdict(int)
     li2 = []

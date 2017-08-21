@@ -106,11 +106,9 @@ def make(T):
     
     pid_chance = pd.DataFrame.from_dict(pid_chance, orient='index').reset_index()
     pid_chance.columns = ['pids', 'chance']
-#    pid_chance.sort_values('chance', ascending=False, inplace=True)
     
     pid_cnt = pd.DataFrame.from_dict(pid_cnt, orient='index').reset_index()
     pid_cnt.columns = ['pids', 'back']
-#    pid_cnt.sort_values('back', ascending=False, inplace=True)
     
     df = pd.merge(pid_chance, pid_cnt, on='pids', how='left').fillna(0)
     

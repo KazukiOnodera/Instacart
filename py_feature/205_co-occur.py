@@ -44,31 +44,6 @@ del log; gc.collect()
 #==============================================================================
 # def
 #==============================================================================
-#def multi1(i):
-#    try:
-#        item_prior, item_now = order_tbl.loc[i,['t-1_product_name', 'product_name']]
-#        item2item = [i1+' -> '+i2 for i1, i2 in list(product(item_prior, item_now))]
-#        return Counter(item2item)
-#    except:
-#        return
-#
-#def multi2(i):
-#    try:
-#        item_prior = order_tbl.loc[i, 't-1_product_name']
-#        return Counter(item_prior)
-#    except:
-#        return
-#
-#mp_pool = mp.Pool(30)
-##callback = mp_pool.map(multi1, range(999))
-#callback = mp_pool.map(multi1, range(order_tbl.shape[0]))
-#order_tbl['item2item'] = callback
-#del callback; gc.collect()
-#
-#callback = mp_pool.map(multi2, range(order_tbl.shape[0]))
-#order_tbl['item_bunbo'] = callback
-#del callback; gc.collect()
-
 
 def make(T):
     """
@@ -82,13 +57,8 @@ def make(T):
     print("start T:{} folder:{}".format(T, folder))
     order_tbl_ = order_tbl[order_tbl.order_number_rev>T].dropna() # drop first order
     
-#    item2item = np.sum(order_tbl_['item2item'])
-#    item_bunbo = np.sum(order_tbl_['item_bunbo'])
-    
     item2item = []
     item_bunbo = Counter()
-#    for item_prior, item_now in tqdm(order_tbl_.head(9999)[['t-1_product_name', 'product_name']].values):
-#    for item_prior, item_now in tqdm(order_tbl_[['t-1_product_name', 'product_name']].values):
     for item_prior, item_now in order_tbl_[['t-1_product_name', 'product_name']].values:
         item2item  += [i1+' -> '+i2 for i1, i2 in list(product(item_prior, item_now))]
         item_bunbo += Counter(item_prior)
@@ -160,7 +130,6 @@ def make(T):
     
     ratio_tbl = {}
     for k,v in df[['key','before_to_after_ratio']].values:
-#    for k,v in tqdm(df[['key','before_to_after_ratio']].values):
         ratio_tbl[k] = v
     
     del df; gc.collect()
@@ -182,7 +151,6 @@ def make(T):
 
 
     print('== before_to_after_ratio ==', T)
-#    order_b4after = order_b4after.head(9999)
     ret = []
     for before_items, item in order_b4after[['t-1_product_id', 'product_id']].values:
         ret.append(search_max_ratio(before_items, item))

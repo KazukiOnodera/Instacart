@@ -74,9 +74,6 @@ def make(T):
 make(0)
 make(1)
 make(2)
-#make(3)
-#make(4)
-#make(5)
 
 make(-1)
 

@@ -117,9 +117,6 @@ def make(log, folder):
 make(log[log.order_number_rev>0], 'trainT-0')
 make(log[log.order_number_rev>1], 'trainT-1')
 make(log[log.order_number_rev>2], 'trainT-2')
-#make(log[log.order_number_rev>3], 'trainT-3')
-#make(log[log.order_number_rev>4], 'trainT-4')
-#make(log[log.order_number_rev>5], 'trainT-5')
 
 make(log, 'test')
 

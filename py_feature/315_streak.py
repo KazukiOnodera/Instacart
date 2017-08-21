@@ -45,7 +45,7 @@ def multi(T):
                       on=['t-{}_order_id'.format(t),'product_id'], how='left')
         
         print(df.isnull().sum())
-        df.fillna(-99, inplace=1) # TODO: -101
+        df.fillna(-99, inplace=1)
         df.reset_index(drop=1, inplace=1)
         
         col = ['order_id', 'product_id', 't-{}_streak'.format(t)]

@@ -44,7 +44,6 @@ for uid,pnames in tqdm(order_tbl[['user_id', 'product_name']].values):
     uid_bk = uid
     pname_unq = list(set(pname_unq))
     pname_unq_len.append(len(pname_unq))
-#    print(uid,len(pname_unq))
     product_name_all.append(pname_unq)
 
 order_tbl['product_name_all'] = product_name_all
