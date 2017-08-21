@@ -14,11 +14,7 @@ import warnings
 warnings.filterwarnings("ignore")
 import pandas as pd
 import numpy as np
-from tqdm import tqdm
 import gc
-import sys
-sys.path.append('/home/konodera/Python')
-import xgbextension as ex
 import xgboost as xgb
 import utils
 
@@ -68,9 +64,6 @@ train = pd.concat([utils.load_pred_item('trainT-0'),
 
 y_train = train['y']
 X_train = train.drop('y', axis=1)
-#X_train = pd.merge(train.drop('y', axis=1), 
-#                   pd.read_pickle('../output/sub/811_1/train_stack_item.p').drop('y', axis=1),
-#                   on=['order_id', 'product_id'], how='left')
 del train
 gc.collect()
 
@@ -121,8 +114,6 @@ utils.mkdir_p('../output/model/{}/'.format(DATE))
 utils.mkdir_p('../output/imp/{}/'.format(DATE))
 utils.mkdir_p('../output/sub/{}/'.format(DATE))
 
-#X_train.head().to_pickle('../output/model/{}/X_train.p'.format(DATE))
-
 # hold out
 models = []
 for i in range(LOOP):
@@ -145,28 +136,12 @@ for i in range(LOOP):
 del train_user, X_train, y_train
 gc.collect()
 
-"""
-models = []
-for i in range(LOOP):
-    model = xgb.Booster({'nthread':20}) #init model
-    model.load_model('../output/model/{}/xgb_item_{}.model'.format(DATE, i)) # load data
-    models.append(model)
-
-"""
-
-imp = ex.getImp(models)
-imp.to_csv('../output/imp/{}/imp.csv'.format(DATE), index=0)
-
-
 
 
 #==============================================================================
 print('test')
 #==============================================================================
 test = utils.load_pred_item('test').fillna(-1)
-#test = pd.merge(utils.load_pred_item('test').fillna(-1), 
-#               pd.read_pickle('../output/sub/811_1/test_stack_item.p'),
-#               on=['order_id', 'product_id'], how='left')
 
 sub_test = test[['order_id', 'product_id']]
 
@@ -179,11 +154,6 @@ print('Test Mean:', sub_test['yhat'].mean())
 
 sub_test.to_pickle('../output/sub/{}/sub_test.p'.format(DATE))
 
-
-
-"""
-
-"""
 #==============================================================================
 utils.end(__file__)
 

@@ -56,7 +56,18 @@ Fortunatelly or not, I got almost same result using Faron's kernel.
 Please refer to py_model/pyx_get_best_items.pyx
 
 ## How to run
-Pending
+* cd py_feature
+* python 901_run_feature.py
+* python 902_run_concat.py
+* cd ../py_model
+* python 999_run.py
 
 ## Requirements
-Pending
+Around 300 GB RAM needed(sorry).
+
+Python packages:
+- numpy==1.12.1
+- pandas==0.19.2
+- scipy==0.19.0
+- tqdm==4.11.2
+- xgboost==0.6
