@@ -5,42 +5,38 @@ Following are the features I made.
 
 ## Features
 ### User feature
-* repeat previous ratio
-* order span mean
-* time for visiting
-* Has ordered orgenic, glutenfree, Asian
-* hour delta
-* order size
-* How many None
+* How often the user reordered items
+* Time between orders
+* Time of day the user visits
+* Whether the user ordered organic, gluten-free, or Asian items in the past
+* Features based on order sizes
+* How many of the user’s orders contained no previously purchased items
 
 ### Item feature
-* ratio of ordered time
-* ordered time cycle
-* co-occur(over order)
-* stats of pos_cart
-* How many user buy it as "one shot"
-* stats of number of items co-occured
-* stats of order streak
-* 1to1 prob
-* prob of reorder within N order_number
-* distribution delta of dow
-* prob of reorder, after first order
-* stats of order_number delta
+* How often the item is purchased
+* Position in the cart
+* How many users buy it as "one shot" item
+* Stats on the number of items that co-occur with this item
+* Stats on the order streak
+* Probability of being reordered within N orders
+* Distribution of the day of week it is ordered
+* Probability it is reordered after the first order
+* Statistics around the time between orders
 
 ### User x Item feature
-* total order
-* days since last order
-* streak
-* stats of pos_cart
-* ratio of ordered time
-* ordered today
-* co-occur
-* replacement
+* Number of orders in which the user purchases the item
+* Days since the user last purchased the item
+* Streak (number of orders in a row the user has purchased the item)
+* Position in the cart
+* Whether the user already ordered the item today
+* Co-occurrence statistics
+* Replacement items
 
 ### datetime feature
-* How many come by dow and hour
+* Counts by day of week
+* Counts by hour
 
-More detail, please refer to source.
+More detail, please refer to codes.
 
 ## F1 maximization
 Regarding F1 maximization, I hadn't read that paper until Faron had published the kernel. But I got high score because of my F1 maximization.
