@@ -23,7 +23,7 @@ utils.start(__file__)
 
 
 # setting
-DATE = 'apdx_base'
+OUTF = '../output/sub/apdx/bench.p'
 LOOP = 3
 ESR = 40
 
@@ -51,8 +51,12 @@ param = {'max_depth':10,
          }
 
 print("""#==== print param ======""")
-print('DATE:', DATE)
+print('OUTF:', OUTF)
 print('seed:', seed)
+
+utils.mkdir_p('../output/model/apdx')
+utils.mkdir_p('../output/imp/apdx')
+utils.mkdir_p('../output/sub/apdx')
 
 #==============================================================================
 # prepare
@@ -107,9 +111,6 @@ def split_build_valid():
 #==============================================================================
 print('hold out')
 #==============================================================================
-utils.mkdir_p('../output/model/{}/'.format(DATE))
-utils.mkdir_p('../output/imp/{}/'.format(DATE))
-utils.mkdir_p('../output/sub/{}/'.format(DATE))
 
 # hold out
 models = []
@@ -123,7 +124,7 @@ for i in range(LOOP):
     model = xgb.train(param, dbuild, nround, watchlist,
                       early_stopping_rounds=ESR, verbose_eval=5)
     models.append(model)
-    model.save_model('../output/model/{}/xgb_item_{}.model'.format(DATE, i))
+#    model.save_model('../output/model/{}/xgb_item_{}.model'.format(DATE, i))
     # VALID
     valid_yhat = model.predict(dvalid)
     print('Valid Mean:', np.mean(valid_yhat))
@@ -147,7 +148,7 @@ for model in models:
 sub_test['yhat'] /= LOOP
 print('Test Mean:', sub_test['yhat'].mean())
 
-sub_test.to_pickle('../output/sub/{}/sub_test.p'.format(DATE))
+sub_test.to_pickle(OUTF)
 
 
 #==============================================================================
