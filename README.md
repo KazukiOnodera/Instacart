@@ -61,6 +61,8 @@ Please refer to py_model/pyx_get_best_items.pyx
 ## Requirements
 Around 300 GB RAM needed(sorry).
 But I confirmed we can get 0.4073 on private LB with only around 60 GB RAM.
+Also if you don't have enough memory and want to get high score, try continuous training using
+xgb_model of xgb.train.
 
 Python packages:
 - numpy==1.12.1
