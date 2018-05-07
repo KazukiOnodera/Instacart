@@ -8,8 +8,12 @@ Created on Wed May 17 08:55:13 2017
 import pandas as pd
 import numpy as np
 import gc
+import os
 import utils
 utils.start(__file__)
+
+os.system('rm -rf ../input/mk')
+os.system('mkdir ../input/mk')
 
 #==============================================================================
 # test user
