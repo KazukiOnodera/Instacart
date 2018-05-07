@@ -50,7 +50,7 @@ for uid,pid,onum in tqdm(log[col].values,miniters=miniters):
     onum_bk = onum
 log['buy_item_inarow'] = ret
 
-log.reset_index(drop=1, inplace=1)
+log.reset_index(drop=1, inplace=True)
 
 log.to_pickle('../input/mk/log_inarow.p')
 
