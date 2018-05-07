@@ -63,6 +63,7 @@ log_test.reset_index(drop=1, inplace=True)
 test_order = pd.merge(test_order, log_test, on='user_id', how='left')
 
 print(test_order[['order_id', 'product_id']].isnull().sum())
+utils.mkdir_p('../feature/test')
 test_order[['order_id', 'product_id']].to_pickle('../feature/test/label_reordered.p')
 
 
