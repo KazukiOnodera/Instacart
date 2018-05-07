@@ -15,6 +15,9 @@ utils.start(__file__)
 os.system('rm -rf ../input/mk')
 os.system('mkdir ../input/mk')
 
+os.system('rm -rf ../feature')
+os.system('mkdir ../feature')
+
 #==============================================================================
 # test user
 #==============================================================================
