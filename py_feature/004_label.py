@@ -44,6 +44,7 @@ def make(T):
     col = ['order_id', 'product_id', 'y']
     
     print(label_train[col].isnull().sum())
+    utils.mkdir_p('../feature/trainT-{}'.format(T))
     label_train[col].to_pickle('../feature/trainT-{}/label_reordered.p'.format(T))
 
 make(0) # basically train is T=0, for validation, train;T=1 valid;T=0
