@@ -13,20 +13,27 @@ from glob import glob
 import os
 from tqdm import tqdm
 import pickle
+from sklearn.model_selection import KFold
 import time
+from datetime import datetime
 import gc
 from itertools import chain
 
 
 
+# =============================================================================
+# def
+# =============================================================================
 def start(fname):
     global st_time
-    st_time = time.time()
+    st_time = time()
     print("""
 #==============================================================================
-# START !!! {} PID: {}
+# START!!! {}    PID: {}    time: {}
 #==============================================================================
-""".format(fname, os.getpid()))
+""".format( fname, os.getpid(), datetime.today() ))
+    
+#    send_line(f'START {fname}  time: {elapsed_minute():.2f}min')
     
     return
 
@@ -37,10 +44,14 @@ def end(fname):
 # SUCCESS !!! {}
 #==============================================================================
 """.format(fname))
-    print('time: {:.2f}min'.format( (time.time() - st_time)/60 ))
+    print('time: {:.2f}min'.format( elapsed_minute() ))
+    
+#    send_line(f'FINISH {fname}  time: {elapsed_minute():.2f}min')
+    
     return
 
-
+def elapsed_minute():
+    return (time() - st_time)/60
 
 def mkdir_p(path):
     try:
@@ -48,7 +59,7 @@ def mkdir_p(path):
     except:
         os.mkdir(path)
     
-def to_pickles(df, path, split_size=3):
+def to_pickles(df, path, split_size=3, inplace=True):
     """
     path = '../output/mydf'
     
@@ -57,13 +68,16 @@ def to_pickles(df, path, split_size=3):
           '../output/mydf/2.p'
     
     """
-    
-    df = df.reset_index(drop=1)
+    if inplace==True:
+        df.reset_index(drop=True, inplace=True)
+    else:
+        df = df.reset_index(drop=True)
+    gc.collect()
     mkdir_p(path)
     
-    for i in tqdm(range(split_size)):
-        df.ix[df.index%split_size==i].to_pickle(path+'/{}.p'.format(i))
-    
+    kf = KFold(n_splits=split_size)
+    for i, (train_index, val_index) in enumerate(tqdm(kf.split(df))):
+        df.iloc[val_index].to_pickle(f'{path}/{i:03d}.p')
     return
 
 def read_pickles(path, col=None):
